@@ -4,7 +4,12 @@ block content
     div.container
         form(method='post')
             div.left.col
-                textarea#stylus-markup(name='stylus')
+                textarea#stylus-markup(name='stylus').
+                    .error
+                        width:500px
+                    .super-error
+                        color:red
+                        @extend .error
             div.center.col
                 div.submit
                     input#parse-css(type='submit', value='convert')
