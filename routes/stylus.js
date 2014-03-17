@@ -1,6 +1,11 @@
 
 exports.form = function(req, res){
-    res.render('form', {title: 'Stylus parser'});
+    var template = '.error ' + "\n" +
+                   '    width:500px' + "\n" +
+                   '.super-error' + "\n" +
+                   '    color:red' + "\n" +
+                   '    @extend .error ';
+    res.render('form', {title: 'Stylus parser', href:'/', tpl : template});
 };
 
 exports.getParsed = function(req, res){
@@ -9,10 +14,14 @@ exports.getParsed = function(req, res){
 
     fs.writeFileSync('tempStyle.styl', req.body.stylusCode);
 
-    exec('stylus < tempStyle.styl > tempStyle.css', function () {});
+    exec('stylus < tempStyle.styl > tempStyle.css', function (error) {
+        if(error !== null) {
+            fs.writeFileSync('tempStyle.css', error);
+        }
+        var filePath = 'tempStyle.css';
 
-    var filePath = 'tempStyle.css';
+        var content = fs.readFileSync(filePath, {encoding: 'utf-8'});
+        res.json({stylus : content});
+    });
 
-    var content = fs.readFileSync(filePath, {encoding: 'utf-8'});
-    res.json({stylus : content});
 };

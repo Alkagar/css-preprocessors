@@ -2,14 +2,9 @@ extends layout
 
 block content
     div.container
-        form(method='post')
+        form(method='post',action=href)
             div.left.col
-                textarea#stylus-markup(name='stylus').
-                    .error
-                        width:500px
-                    .super-error
-                        color:red
-                        @extend .error
+                textarea#stylus-markup(name='stylus')= tpl
             div.center.col
                 div.submit
                     input#parse-css(type='submit', value='convert')

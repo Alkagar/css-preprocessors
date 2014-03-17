@@ -6,6 +6,7 @@
 var express = require('express');
 var routes = require('./routes');
 var rStylus = require('./routes/stylus');
+var rSass = require('./routes/sass');
 var http = require('http');
 var path = require('path');
 
@@ -32,6 +33,9 @@ if ('development' == app.get('env')) {
 
 app.get('/', rStylus.form);
 app.post('/', rStylus.getParsed);
+
+app.get('/sass', rSass.form);
+app.post('/sass', rSass.getParsed);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

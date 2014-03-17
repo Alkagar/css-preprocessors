@@ -1,7 +1,8 @@
 $(document).ready(function() {  
+    var formHref = $('form').attr('action');
     $('#parse-css').click(function(e) {
         $.ajax({
-            url : '/',
+            url : formHref,
             type : 'post',
             data : { 'stylusCode' : $('#stylus-markup').val() },
             success : function(data) {
