@@ -1,0 +1,8 @@
+.error,
+.super-error {
+  width: 500px;
+}
+.super-error {
+  color: #f00;
+}
+

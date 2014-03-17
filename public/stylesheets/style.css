@@ -1,8 +1,52 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+
+.container {
+    width:900px;
+    margin:auto;
+    height:600px;
+}
+.col {
+    float:left;
+    height:600px;
+    overflow:auto;
+}
+
+.left {
+    width:400px;
+    
+}
+textarea {
+    margin-top:13px;
+    border:0px;
+    width:390px;
+    height:550px;
+    -moz-tab-size:4;
+    tab-size:4;
+}
+input {
+    margin-top:50px;
+    padding:5px;
+}
+.center {
+    width:100px;
+    text-align:center;
+}
+div.submit {
+}
+.right {
+    width:400px;
+}
+
+pre {
+    -moz-tab-size:4;
+    tab-size:4;
+
+}
+
